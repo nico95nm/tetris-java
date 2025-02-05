@@ -27,8 +27,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void initializeGameComponents() {
-        addKeyListener(new KeyHandler());
-        playManager = new PlayManager();
+    addKeyListener(new Controls());
+        playManager = new PlayManager(WIDTH, HEIGHT);
     }
 
     public void launchGame() {
@@ -55,7 +55,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void updateGame() {
-        if (!KeyHandler.pausePressed && !playManager.gameOver) {
+        if (!Controls.pause && !playManager.gameOver) {
             playManager.update();
         }
     }
